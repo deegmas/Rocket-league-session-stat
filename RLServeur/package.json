@@ -1,0 +1,16 @@
+{
+  "name": "rl",
+  "version": "1.0.0",
+  "description": "display wins / loses in game with the mmr and show the change mmr since your start",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Deegmas <thomas-degenetais@outlook.fr>",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}
