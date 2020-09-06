@@ -61,8 +61,12 @@ export default {
             var result = await axios.get('http://127.0.0.1:3000');
             var mmActuel = result.data;
 
+            // requete pour vérification du mmr actuel (pb rencontré lors du scrapping -> chiffre manquant lors de la récupération via le serveur)
+            var resultVerif = await axios.get('http://127.0.0.1:3000');
+            var mmActuelVerif = resultVerif.data;
+
             // vérification de la taille du mmr pour éviter les erreurs de scrapping
-            if (mmActuel.length === 6) {
+            if (mmActuel == mmActuelVerif) {
                 // récupération du dernier mmr enregistrer dans le local
                 var lastmm = localStorage.lastMmr;
                 // vérification si le mmr à changer depuis le début ou non
@@ -130,7 +134,7 @@ export default {
                         var mLocalLose = parseInt(mLocalLoseReplace);
                         console.log("mLocalLose " + mLocalLose);
 
-                        this.mmrChange = " - " + (mActuelLose - mLocalLose);
+                        this.mmrChange = (mActuelLose - mLocalLose);
                         console.log(mActuelLose - mLocalLose);
                     }
                     // actualisation du mmr sur la frame
